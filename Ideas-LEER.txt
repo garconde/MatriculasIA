@@ -1,0 +1,19 @@
+1. El sistema tendrá cuatro vistas:
+
+Matriculas IA: 	*Definiciones y presentación del proyecto, integrantes, fecha, profesor, etc. (Logo UdeC, opcional).
+
+Registrar: 	*Pida los datos de los estudiantes a matricular (name, apell., codigo, programa, estrato(1-3), etc).
+		*La ubicación se captura del mapa, y el semestre actual es 1 por defecto.
+		*Boton que genere estudiante aleatorio y rellene los campos.
+		*Mostrar mapa con la ubicación y elegir lugar.
+
+Estudiante: 	*Aquí se pide el codigo y se valida.
+		*Se le presenta la opción de avanzar o desertar, debe eligir.
+		*Hacer función que elija un código aleatorio y aleatoriamente elija avanzar o desertar.
+		*Si alguien está en 10mo no puede avanzar.
+
+Informe: 	*Presentar una tabla de lugares y numeros de desertados para ver cual es el orden.
+		*Presentar un gráfico que muestre el número de desertados por estrato.
+		*Presentar los programas más desertados.
+
+Ideas básicas...
