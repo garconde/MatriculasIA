@@ -31,6 +31,14 @@ http://www.tooplate.com/view/2088-big-city
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
           <![endif]-->
+
+    <style>
+       #map {                
+ 		height: 400px;
+ 		width: 800px;
+ 		allowfullscreen;
+ 	}
+    </style>
 </head>
 
     <body>
@@ -90,7 +98,7 @@ http://www.tooplate.com/view/2088-big-city
                                                     <p class="tm-text tm-home-description">Proyecto de la asignatura de Inteligencia Artificial de la Universidad de Cartagena correspondiente a un breve análisis simulado de matrículas y deserción de estudiantes teniendo a su ubicación.</a></p>
                                                     <p class="tm-text tm-home-description">
 														Jesús David Prasca, Inka Luhrs, David Garcés, Deimer Romero
-														Universidad de Cartagena
+														<br>Universidad de Cartagena</br>
 														<br>Docente Cristian Fernández</br>
 														<br>Septiembre 2017</br>
 													</p>
@@ -108,7 +116,7 @@ http://www.tooplate.com/view/2088-big-city
                 <!-- Page 2 Registro -->
                 <li>
                     <div class="cd-full-width">
-                        <div class="container js-tm-page-content tm-section-margin-t-small" data-page-no="4">                            
+                        <div class="container js-tm-page-content tm-section-margin-t-small" data-page-no="2">                            
                             <div class="tm-contact-page">
                                 <div class="row tm-margin-b">
                                     <div class="col-xs-12">
@@ -117,15 +125,44 @@ http://www.tooplate.com/view/2088-big-city
                                         </div>
                                     </div>
                                 </div>
-                                
+
+                                <div id="map">"map"</div>
+							    <script>
+							      function initMap() {
+							        var uluru = {lat: 10.400, lng: -75.478};
+							        var map = new google.maps.Map(document.getElementById('map'), {
+							          zoom: 13,
+							          center: uluru
+							        });
+							        var marker = new google.maps.Marker({
+							          position: uluru,
+							          map: map
+							        });
+							      }
+							    </script>
+							    <script async defer
+							    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC51wVYj3qvz0U3UXDZNThldjR5IJ11-Iw&callback=initMap">
+							    </script><br></br>
+                
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <div class="tm-flex tm-contact-container tm-bg-dark-blue">                                
                                             <div class="text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding tm-textbox-padding-contact">
-                                                <p class="tm-text">Phasellus lacus mi, porta vel sodales nec, faucibus non eros. Nulla at quam vel risus laoreet tincidunt in in sem.</p>                                                                                                                                                 
-                                                <p class="tm-text">88-99 Etiam mauris erat,<br>Vestibulum eu augue nec, 10890<br>Nam consequat<br></p>
-                                                <p class="tm-text">Tel: 010-020-0340<br>Fax: 090-080-0980</p>
-                                            </div>
+                                           		<!--<p class="tm-text">Poner aquí el mapa</p>-->
+                                           		 <form action="index.html" method="post" class="tm-contact-form">
+                                                    <div class="form-group">
+                                                        <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Name"  required/>
+                                                    </div>                                                                                                            
+                                                    <div class="form-group">
+                                                        <input type="email" id="contact_email" name="contact_email" class="form-control" placeholder="Email"  required/>
+                                                    </div>                                                    
+                                                    <div class="form-group">
+                                                        <textarea id="contact_message" name="contact_message" class="form-control" rows="5" placeholder="Your message" required></textarea>
+                                                    </div>
+                                                    <button type="submit" class="tm-submit-btn">Send</button>                                                
+                                                </form> 
+                                           		
+                                           	</div>
 
                                             <div class="text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding tm-textbox-padding-contact">
                                                 <!-- contact form -->
@@ -150,10 +187,10 @@ http://www.tooplate.com/view/2088-big-city
                     </div> <!-- .cd-full-width -->
                 </li>
                 
-                <!-- Page 2 About -->
+                <!-- Page 3 Estudiante -->
                 <li>
                     <div class="cd-full-width">
-                        <div class="container js-tm-page-content tm-section-margin-t" data-page-no="2">
+                        <div class="container js-tm-page-content tm-section-margin-t" data-page-no="3">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="tm-flex">
@@ -243,10 +280,10 @@ http://www.tooplate.com/view/2088-big-city
 
                 </li>
                
-                <!-- Page 3 Gallery -->
+                <!-- Page 4 Informes -->
                 <li>
                     <div class="cd-full-width">                        
-                        <div class="container js-tm-page-content tm-section-margin-t" data-page-no="3">
+                        <div class="container js-tm-page-content tm-section-margin-t" data-page-no="4">
                             <div class="row tm-margin-b">
                                 <div class="col-xs-12">
                                     <div class="tm-img-gallery-container">
