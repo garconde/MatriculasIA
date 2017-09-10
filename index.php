@@ -159,7 +159,7 @@ http://www.tooplate.com/view/2088-big-city
                                                     <div class="form-group">
                                                         <textarea id="contact_message" name="contact_message" class="form-control" rows="5" placeholder="Your message" required></textarea>
                                                     </div>
-                                                    <button type="submit" class="tm-submit-btn">Send</button>                                                
+                                                    <button type="submit" class="tm-submit-btn">Enviar</button>                                                
                                                 </form> 
                                            		
                                            	</div>
