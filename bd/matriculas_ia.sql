@@ -62,9 +62,12 @@ CREATE TABLE IF NOT EXISTS `estados_reg` (
   CONSTRAINT `estados_reg_ibfk_2` FOREIGN KEY (`estr_est`) REFERENCES `personas` (`per_codigo`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
--- Volcando datos para la tabla matriculas_ai.estados_reg: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla matriculas_ai.estados_reg: ~2 rows (aproximadamente)
 DELETE FROM `estados_reg`;
 /*!40000 ALTER TABLE `estados_reg` DISABLE KEYS */;
+INSERT INTO `estados_reg` (`estr_tipo`, `estr_est`) VALUES
+	(1, 12),
+	(1, 13);
 /*!40000 ALTER TABLE `estados_reg` ENABLE KEYS */;
 
 -- Volcando estructura para tabla matriculas_ai.estados_tipo
@@ -85,6 +88,7 @@ INSERT INTO `estados_tipo` (`estt_codigo`, `estt_nombre`) VALUES
 -- Volcando estructura para procedimiento matriculas_ai.insertar_persona
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `insertar_persona`(
+	IN `llave_` TINYINT,
 	IN `per_id_` INT(11),
 	IN `per_nombres_` VARCHAR(50),
 	IN `per_ape1_` VARCHAR(40),
@@ -104,26 +108,57 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `insertar_persona`(
 
 
 
+
+
+
+
+
+
+
 )
 BEGIN
-	INSERT INTO personas(per_id, per_nombres, per_apellido1, per_apellido2, per_estrato) 
-	VALUES (per_id_, per_nombres_, per_ape1_, per_ape2_, per_estrato_);
-	
-	INSERT INTO matriculas(matriculas.mat_estudiante, matriculas.mat_programa)
-	VALUES (buscar_id_persona(per_id_), mat_programa_);
-	
-	INSERT INTO novedades_reg(novedades_reg.novr_est, novedades_reg.novr_detalle)
-	VALUES (buscar_id_persona(per_id_), nov_detalle_);
-	
-	INSERT INTO matriculas_h(matriculas_h.math_cod, matriculas_h.math_fecha, matriculas_h.math_semestre, matriculas_h.math_novedad)
-	VALUES (buscar_id_matricula(per_id_), NOW(), 1, nov_cod_);
-	
-	INSERT INTO estados_reg (estados_reg.estr_tipo, estados_reg.estr_est)
-	VALUES (1, buscar_id_persona(per_id_));
-	
-	INSERT INTO localizacion (localizacion.loc_mun, localizacion.loc_est)
-	VALUES (loc_mun_, buscar_id_persona(per_id_));
 
+	#la Llave es 1 cuando se registra una persona por primera vez  
+	IF llave_ = 1 THEN
+		INSERT INTO personas(per_id, per_nombres, per_apellido1, per_apellido2, per_estrato) 
+		VALUES (per_id_, per_nombres_, per_ape1_, per_ape2_, per_estrato_);
+		
+		INSERT INTO matriculas(matriculas.mat_estudiante, matriculas.mat_programa)
+		VALUES (buscar_id_persona(per_id_), mat_programa_);
+		
+		INSERT INTO novedades_reg(novedades_reg.novr_est, novedades_reg.novr_detalle)
+		VALUES (buscar_id_persona(per_id_), nov_detalle_);
+			
+		INSERT INTO estados_reg (estados_reg.estr_tipo, estados_reg.estr_est)
+		VALUES (1, buscar_id_persona(per_id_));
+		
+		INSERT INTO localizacion (localizacion.loc_mun, localizacion.loc_est)
+		VALUES (loc_mun_, buscar_id_persona(per_id_));
+		
+		INSERT INTO matriculas_h(matriculas_h.math_cod, matriculas_h.math_fecha, matriculas_h.math_semestre, matriculas_h.math_novedad)
+		VALUES (buscar_id_persona(per_id_), NOW(), 1, nov_cod_);
+		
+	#en caso contrario, solo debe actualizar los datos
+	ELSE
+				
+		UPDATE novedades_reg 
+		SET novedades_reg.novr_detalle = nov_detalle_, novedades_reg.novr_codigo = nov_cod_
+		WHERE novedades_reg.novr_est = buscar_id_persona(per_id_);
+					
+		UPDATE estados_reg 
+		SET estados_reg.estr_tipo = 1
+		WHERE estados_reg.estr_est = buscar_id_persona(per_id_);
+					
+		#UPDATE localizacion 
+		#SET localizacion.loc_mun, localizacion.loc_est
+		#VALUES (loc_mun_, buscar_id_persona(per_id_));	
+		
+		SET @SEMESTRE = (SELECT MAX(matriculas_h.math_semestre) FROM matriculas_h WHERE matriculas_h.math_cod = buscar_id_persona(per_id_));
+		
+		INSERT INTO matriculas_h(matriculas_h.math_cod, matriculas_h.math_fecha, matriculas_h.math_semestre, matriculas_h.math_novedad)
+		VALUES (buscar_id_persona(per_id_), NOW(), (@SEMESTRE + 1), nov_cod_);
+	
+	END IF;
 	
 END//
 DELIMITER ;
@@ -140,9 +175,12 @@ CREATE TABLE IF NOT EXISTS `localizacion` (
   CONSTRAINT `localizacion_ibfk_2` FOREIGN KEY (`loc_est`) REFERENCES `personas` (`per_codigo`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
--- Volcando datos para la tabla matriculas_ai.localizacion: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla matriculas_ai.localizacion: ~2 rows (aproximadamente)
 DELETE FROM `localizacion`;
 /*!40000 ALTER TABLE `localizacion` DISABLE KEYS */;
+INSERT INTO `localizacion` (`loc_mun`, `loc_est`, `loc_latitud`, `loc_longitud`) VALUES
+	(13001, 12, NULL, NULL),
+	(13001, 13, NULL, NULL);
 /*!40000 ALTER TABLE `localizacion` ENABLE KEYS */;
 
 -- Volcando estructura para tabla matriculas_ai.matriculas
@@ -155,18 +193,19 @@ CREATE TABLE IF NOT EXISTS `matriculas` (
   KEY `mat_programa` (`mat_programa`),
   CONSTRAINT `matriculas_ibfk_1` FOREIGN KEY (`mat_estudiante`) REFERENCES `personas` (`per_codigo`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `matriculas_ibfk_2` FOREIGN KEY (`mat_programa`) REFERENCES `programas` (`prog_codigo`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
--- Volcando datos para la tabla matriculas_ai.matriculas: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla matriculas_ai.matriculas: ~2 rows (aproximadamente)
 DELETE FROM `matriculas`;
 /*!40000 ALTER TABLE `matriculas` DISABLE KEYS */;
 INSERT INTO `matriculas` (`mat_codigo`, `mat_estudiante`, `mat_programa`) VALUES
-	(6, 6, 21);
+	(13, 13, 21),
+	(12, 12, 22);
 /*!40000 ALTER TABLE `matriculas` ENABLE KEYS */;
 
 -- Volcando estructura para tabla matriculas_ai.matriculas_h
 CREATE TABLE IF NOT EXISTS `matriculas_h` (
-  `math_cod` int(11) NOT NULL DEFAULT '0',
+  `math_cod` int(11) DEFAULT '0',
   `math_fecha` datetime DEFAULT NULL,
   `math_semestre` tinyint(3) DEFAULT NULL,
   `math_novedad` int(11) DEFAULT NULL,
@@ -176,9 +215,19 @@ CREATE TABLE IF NOT EXISTS `matriculas_h` (
   CONSTRAINT `matriculas_h_ibfk_2` FOREIGN KEY (`math_novedad`) REFERENCES `novedades_tipo` (`nov_codigo`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
--- Volcando datos para la tabla matriculas_ai.matriculas_h: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla matriculas_ai.matriculas_h: ~8 rows (aproximadamente)
 DELETE FROM `matriculas_h`;
 /*!40000 ALTER TABLE `matriculas_h` DISABLE KEYS */;
+INSERT INTO `matriculas_h` (`math_cod`, `math_fecha`, `math_semestre`, `math_novedad`) VALUES
+	(NULL, '2017-09-10 00:09:00', 1, 0),
+	(NULL, '2017-09-10 00:10:37', 1, 0),
+	(NULL, '2017-09-10 00:11:51', 1, 0),
+	(NULL, '2017-09-10 00:13:35', 1, 0),
+	(NULL, '2017-09-10 00:21:34', 1, 0),
+	(12, '2017-09-10 00:44:25', 1, 0),
+	(13, '2017-09-10 00:44:36', 1, 0),
+	(12, '2017-09-10 00:46:32', NULL, 0),
+	(12, '2017-09-10 00:51:56', 2, 0);
 /*!40000 ALTER TABLE `matriculas_h` ENABLE KEYS */;
 
 -- Volcando estructura para tabla matriculas_ai.municipios
@@ -249,11 +298,12 @@ CREATE TABLE IF NOT EXISTS `novedades_reg` (
   CONSTRAINT `novedades_reg_ibfk_1` FOREIGN KEY (`novr_est`) REFERENCES `personas` (`per_codigo`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
--- Volcando datos para la tabla matriculas_ai.novedades_reg: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla matriculas_ai.novedades_reg: ~2 rows (aproximadamente)
 DELETE FROM `novedades_reg`;
 /*!40000 ALTER TABLE `novedades_reg` DISABLE KEYS */;
 INSERT INTO `novedades_reg` (`novr_codigo`, `novr_detalle`, `novr_est`) VALUES
-	(0, '...', 6);
+	(0, '0', 12),
+	(0, '...', 13);
 /*!40000 ALTER TABLE `novedades_reg` ENABLE KEYS */;
 
 -- Volcando estructura para tabla matriculas_ai.novedades_tipo
@@ -283,13 +333,14 @@ CREATE TABLE IF NOT EXISTS `personas` (
   `per_apellido2` varchar(40) COLLATE utf8_spanish_ci DEFAULT NULL,
   `per_estrato` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`per_codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
--- Volcando datos para la tabla matriculas_ai.personas: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla matriculas_ai.personas: ~2 rows (aproximadamente)
 DELETE FROM `personas`;
 /*!40000 ALTER TABLE `personas` DISABLE KEYS */;
 INSERT INTO `personas` (`per_codigo`, `per_id`, `per_nombres`, `per_apellido1`, `per_apellido2`, `per_estrato`) VALUES
-	(6, '45431347', 'Karen', 'Parra', '', 2);
+	(12, '1047436661', 'Jesus David', 'Prasca', 'Bustos', 2),
+	(13, '45431347', 'Karen', 'Parra', '', 2);
 /*!40000 ALTER TABLE `personas` ENABLE KEYS */;
 
 -- Volcando estructura para tabla matriculas_ai.programas
@@ -297,14 +348,18 @@ CREATE TABLE IF NOT EXISTS `programas` (
   `prog_codigo` int(11) NOT NULL AUTO_INCREMENT,
   `prog_nombre` varchar(80) COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`prog_codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- Volcando datos para la tabla matriculas_ai.programas: ~2 rows (aproximadamente)
 DELETE FROM `programas`;
 /*!40000 ALTER TABLE `programas` DISABLE KEYS */;
 INSERT INTO `programas` (`prog_codigo`, `prog_nombre`) VALUES
 	(21, 'CIVIL'),
-	(22, 'SISTEMAS');
+	(22, 'SISTEMAS'),
+	(23, 'QUIMICA'),
+	(24, 'ALIMENTOS'),
+	(25, 'ELECTRONICA'),
+	(26, 'MECANICA');
 /*!40000 ALTER TABLE `programas` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
