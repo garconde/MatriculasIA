@@ -21,7 +21,7 @@ class ManejoDatos {
 
 
     public function ManejoDatos(){
-        $this->DB = "matriculas_ai_copy";
+        $this->DB = "matriculas_ai";
         $this->adminDB = new ConectorBD();
     }
     

@@ -1,52 +1,52 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Big City - Responsive HTML CSS Template</title>
-<!--
+        <title>Sistema de matrículas</title>
+        <!--
+        
+        Template 2088 Big City
+        
+        http://www.tooplate.com/view/2088-big-city
+        
+        -->
+        <!-- load stylesheets -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  
+        <!-- Google web font "Open Sans" -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">                                      
+        <!-- Bootstrap style -->
+        <link rel="stylesheet" href="css/hero-slider-style.css">                              
+        <!-- Hero slider style (https://codyhouse.co/gem/hero-slider/) -->
+        <link rel="stylesheet" href="css/magnific-popup.css">                                 
+        <!-- Magnific popup style (http://dimsemenov.com/plugins/magnific-popup/) -->
+        <link rel="stylesheet" href="css/tooplate-style.css">                                   
+        <!-- Tooplate style -->
 
-Template 2088 Big City
-
-http://www.tooplate.com/view/2088-big-city
-
--->
-    <!-- load stylesheets -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  
-    <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">                                      
-    <!-- Bootstrap style -->
-    <link rel="stylesheet" href="css/hero-slider-style.css">                              
-    <!-- Hero slider style (https://codyhouse.co/gem/hero-slider/) -->
-    <link rel="stylesheet" href="css/magnific-popup.css">                                 
-    <!-- Magnific popup style (http://dimsemenov.com/plugins/magnific-popup/) -->
-    <link rel="stylesheet" href="css/tooplate-style.css">                                   
-    <!-- Tooplate style -->
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
           <![endif]-->
 
-    <style>
-       #map {                
- 		height: 400px;
- 		width: 800px;
- 		allowfullscreen;
- 	}
-    </style>
-</head>
+        <style>
+            #map {                
+                height: 400px;
+                width: 800px;
+                allowfullscreen;
+            }
+        </style>
+    </head>
 
     <body>
 
         <div class="cd-bg-video-wrapper" data-video="video/bangkok-city">
             <!-- video element will be loaded using jQuery -->
         </div> <!-- .cd-bg-video-wrapper -->
-        
+
         <!-- Content -->
         <div class="cd-hero">
 
@@ -97,11 +97,11 @@ http://www.tooplate.com/view/2088-big-city
                                                 <div class="text-xs-left tm-textbox">                                            
                                                     <p class="tm-text tm-home-description">Proyecto de la asignatura de Inteligencia Artificial de la Universidad de Cartagena correspondiente a un breve análisis simulado de matrículas y deserción de estudiantes teniendo a su ubicación.</a></p>
                                                     <p class="tm-text tm-home-description">
-														Jesús David Prasca, Inka Luhrs, David Garcés, Deimer Romero
-														<br>Universidad de Cartagena</br>
-														<br>Docente Cristian Fernández</br>
-														<br>Septiembre 2017</br>
-													</p>
+                                                        Jesús David Prasca, Inka Luhrs, David Garcés, Deimer Romero
+                                                        <br>Universidad de Cartagena</br>
+                                                        <br>Docente Cristian Fernández</br>
+                                                        <br>Septiembre 2017</br>
+                                                    </p>
                                                 </div>
                                             </div>    
                                         </div>
@@ -112,7 +112,7 @@ http://www.tooplate.com/view/2088-big-city
                         </div>
                     </div> <!-- .cd-full-width -->
                 </li>
-                
+
                 <!-- Page 2 Registro -->
                 <li>
                     <div class="cd-full-width">
@@ -127,29 +127,29 @@ http://www.tooplate.com/view/2088-big-city
                                 </div>
 
                                 <div id="map">"map"</div>
-							    <script>
-							      function initMap() {
-							        var uluru = {lat: 10.400, lng: -75.478};
-							        var map = new google.maps.Map(document.getElementById('map'), {
-							          zoom: 13,
-							          center: uluru
-							        });
-							        var marker = new google.maps.Marker({
-							          position: uluru,
-							          map: map
-							        });
-							      }
-							    </script>
-							    <script async defer
-							    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC51wVYj3qvz0U3UXDZNThldjR5IJ11-Iw&callback=initMap">
-							    </script><br></br>
-                
+                                <script>
+                                    function initMap() {
+                                        var uluru = {lat: 10.400, lng: -75.478};
+                                        var map = new google.maps.Map(document.getElementById('map'), {
+                                            zoom: 13,
+                                            center: uluru
+                                        });
+                                        var marker = new google.maps.Marker({
+                                            position: uluru,
+                                            map: map
+                                        });
+                                    }
+                                </script>
+                                <script async defer
+                                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC51wVYj3qvz0U3UXDZNThldjR5IJ11-Iw&callback=initMap">
+                                </script><br></br>
+
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <div class="tm-flex tm-contact-container tm-bg-dark-blue">                                
                                             <div class="text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding tm-textbox-padding-contact">
-                                           		<!--<p class="tm-text">Poner aquí el mapa</p>-->
-                                           		 <form action="index.html" method="post" class="tm-contact-form">
+                                                        <!--<p class="tm-text">Poner aquí el mapa</p>-->
+                                                <form action="index.html" method="post" class="tm-contact-form">
                                                     <div class="form-group">
                                                         <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Name"  required/>
                                                     </div>                                                                                                            
@@ -161,8 +161,8 @@ http://www.tooplate.com/view/2088-big-city
                                                     </div>
                                                     <button type="submit" class="tm-submit-btn">Enviar</button>                                                
                                                 </form> 
-                                           		
-                                           	</div>
+
+                                            </div>
 
                                             <div class="text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding tm-textbox-padding-contact">
                                                 <!-- contact form -->
@@ -186,7 +186,7 @@ http://www.tooplate.com/view/2088-big-city
                         </div>                        
                     </div> <!-- .cd-full-width -->
                 </li>
-                
+
                 <!-- Page 3 Estudiante -->
                 <li>
                     <div class="cd-full-width">
@@ -279,120 +279,47 @@ http://www.tooplate.com/view/2088-big-city
                     </div> <!-- .cd-full-width -->
 
                 </li>
-               
+
                 <!-- Page 4 Informes -->
                 <li>
-                    <div class="cd-full-width">                        
-                        <div class="container js-tm-page-content tm-section-margin-t" data-page-no="4">
-                            <div class="row tm-margin-b">
-                                <div class="col-xs-12">
-                                    <div class="tm-img-gallery-container">
-
-                                        <div class="tm-img-gallery gallery-first">
-                                        <!-- Gallery Two pop up connected with JS code below -->
-
-                                            <div class="tm-gallery-title-container">
-                                                <div class="tm-bg-dark-blue tm-white-border tm-textbox-padding tm-margin-b">                                    
-                                                    <h2 class="tm-text-title tm-gallery-title tm-margin-b-0"><span class="tm-white">First Gallery</span></h2>                                        
-                                                </div>
-                                                <div class="tm-bg-white-half"></div>
-                                            </div>
-
-                                            <div class="grid-item">
-                                                <a href="img/tm-img-01.jpg">                                                
-                                                    <img src="img/tm-img-01-tn.jpg" alt="Image" class="img-fluid tm-img">                                              
-                                                </a>
-                                            </div>
-                                            <div class="grid-item">
-                                                <a href="img/tm-img-02.jpg">                                                
-                                                    <img src="img/tm-img-02-tn.jpg" alt="Image" class="img-fluid tm-img">                                                
-                                                </a>
-                                            </div>
-                                            <div class="grid-item">
-                                                <a href="img/tm-img-03.jpg">                                                
-                                                    <img src="img/tm-img-03-tn.jpg" alt="Image" class="img-fluid tm-img">                                                
-                                                </a>
-                                            </div>
-                                            <div class="grid-item">
-                                                <a href="img/tm-img-04.jpg">                                                
-                                                    <img src="img/tm-img-04-tn.jpg" alt="Image" class="img-fluid tm-img">                                                
-                                                </a>
-                                            </div>
-                                            <div class="grid-item">
-                                                <a href="img/tm-img-05.jpg">                                                
-                                                    <img src="img/tm-img-05-tn.jpg" alt="Image" class="img-fluid tm-img">                                                
-                                                </a>
-                                            </div>
-                                            <div class="grid-item">
-                                                <a href="img/tm-img-06.jpg">                                                
-                                                    <img src="img/tm-img-06-tn.jpg" alt="Image" class="img-fluid tm-img">                                                
-                                                </a>
-                                            </div>                                                                           
-                                        </div>                                         
-                                    </div> <!-- .tm-img-gallery-container -->  
-
+                    <div class="cd-full-width">
+                        <div class="container js-tm-page-content tm-section-margin-t-small" data-page-no="2">                            
+                            <div class="tm-contact-page">
+                                <div class="row tm-margin-b">
+                                    <div class="col-xs-12">
+                                        <div class="tm-bg-white tm-textbox-padding">
+                                            <h2 class="tm-text-title tm-margin-b-0">Vistas gráficas</h2>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div> <!-- row -->
-                            <div class="row">                                
-                                <div class="col-xs-12">
-                                    <div class="tm-img-gallery-container">
 
-                                        <div class="tm-img-gallery gallery-second">
-                                        <!-- Gallery Two pop up connected with JS code below -->
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="tm-flex tm-contact-container tm-bg-dark-blue">                                
+                                            
+                                            <div class="text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding tm-textbox-padding-contact">
+                                                <!-- contact form -->
+                                                <form action="#" method="post" class="tm-contact-form">                                                    
+                                                    <button type="button" class="tm-submit-btn" onclick="window.open('../MatriculasIA/reports/rep_mat_x_mun.php', this.target, 'width=800px,height=600px'); return false;">Posibles deserciones por municipio</button> 
+                                                    <button type="button" class="tm-submit-btn">Posibles deserciones por estrato</button> 
+                                                    <button type="button" class="tm-submit-btn" onclick="window.open('../MatriculasIA/reports/rep_mat_x_pro.php', this.target, 'width=800px,height=600px'); return false;">Programas con posible deserción</button>
+                                                </form> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div> <!-- .cd-full-width -->  
 
-                                            <div class="tm-gallery-title-container">
-                                                <div class="tm-bg-dark-blue tm-white-border tm-textbox-padding tm-margin-b">                                    
-                                                    <h2 class="tm-text-title tm-gallery-title tm-margin-b-0"><span class="tm-white">Second Gallery</span></h2>                                        
-                                                </div>
-                                                <div class="tm-bg-white-half"></div>
-                                            </div>
-
-                                            <div class="grid-item grid-item-big">
-                                                <a href="img/tm-img-07.jpg">                                                
-                                                    <img src="img/tm-img-07-tn.jpg" alt="Image" class="img-fluid tm-img-no-border">                                              
-                                                </a>
-                                            </div>
-                                            <div class="grid-item grid-item-big">
-                                                <a href="img/tm-img-08.jpg">                                                
-                                                    <img src="img/tm-img-08-tn.jpg" alt="Image" class="img-fluid tm-img-no-border">                                                
-                                                </a>
-                                            </div>
-                                            <div class="grid-item grid-item-square">
-                                                <a href="img/tm-img-09.jpg">                                                
-                                                    <img src="img/tm-img-09-tn.jpg" alt="Image" class="img-fluid tm-img-no-border">                                                
-                                                </a>
-                                            </div>
-                                            <div class="grid-item grid-item-square">
-                                                <a href="img/tm-img-10.jpg">                                                
-                                                    <img src="img/tm-img-10-tn.jpg" alt="Image" class="img-fluid tm-img-no-border">                                                
-                                                </a>
-                                            </div>
-                                            <div class="grid-item grid-item-square">
-                                                <a href="img/tm-img-11.jpg">                                                
-                                                    <img src="img/tm-img-11-tn.jpg" alt="Image" class="img-fluid tm-img-no-border">                                                
-                                                </a>
-                                            </div>
-                                            <div class="grid-item grid-item-square">
-                                                <a href="img/tm-img-12.jpg">                                                
-                                                    <img src="img/tm-img-12-tn.jpg" alt="Image" class="img-fluid tm-img-no-border">                                                
-                                                </a>
-                                            </div>                                                                            
-                                        </div>                                         
-                                    </div> <!-- .tm-img-gallery-container -->                                     
-                                </div>  <!-- col-xs-12 -->                          
-                            </div> <!-- row --> 
-                        </div> <!-- .container -->
-                                                    
-                    </div> <!-- .cd-full-width -->
-                    
                 </li>
-                
+
 
             </ul> <!-- .cd-hero-slider -->
-            
+
             <footer class="tm-footer">            
                 <p class="tm-copyright-text pull-xs-right"><span class="tm-current-year"></span> Matrículas IA            
-                <a rel="nofollow" href="" class="tm-footer-link" target="_parent"></a></p>
+                    <a rel="nofollow" href="" class="tm-footer-link" target="_parent"></a></p>
             </footer>                    
         </div> <!-- .cd-hero -->        
 
@@ -402,7 +329,7 @@ http://www.tooplate.com/view/2088-big-city
             <div class="loader-section section-left"></div>
             <div class="loader-section section-right"></div>
         </div>
-        
+
         <!-- load JS files -->
         <script src="js/jquery-1.11.3.min.js"></script>         <!-- jQuery (https://jquery.com/download/) -->
         <script src="js/tether.min.js"></script>                <!-- http://tether.io/ -->
@@ -410,117 +337,119 @@ http://www.tooplate.com/view/2088-big-city
         <script src="js/bootstrap.min.js"></script>             <!-- Bootstrap js (v4-alpha.getbootstrap.com/) -->
         <script src="js/hero-slider-main.js"></script>          <!-- Hero slider (https://codyhouse.co/gem/hero-slider/) -->
         <script src="js/jquery.magnific-popup.min.js"></script> <!-- Magnific popup (http://dimsemenov.com/plugins/magnific-popup/) -->
-        
+
         <script>
 
-            function adjustHeightOfPage(pageNo) {
+                                    function adjustHeightOfPage(pageNo) {
 
-                var offset = 80;
-                var pageContentHeight = $(".cd-hero-slider li:nth-of-type(" + pageNo + ") .js-tm-page-content").height();
+                                        var offset = 80;
+                                        var pageContentHeight = $(".cd-hero-slider li:nth-of-type(" + pageNo + ") .js-tm-page-content").height();
 
-                if($(window).width() >= 992) { offset = 120; }
-                else if($(window).width() < 480) { offset = 40; }
-               
-                // Get the page height
-                var totalPageHeight = 335 + $('.cd-slider-nav').height()
-                                        + pageContentHeight + offset
-                                        + $('.tm-footer').height();
+                                        if ($(window).width() >= 992) {
+                                            offset = 120;
+                                        } else if ($(window).width() < 480) {
+                                            offset = 40;
+                                        }
 
-                // Adjust layout based on page height and window height
-                if(totalPageHeight > $(window).height()) 
-                {
-                    $('.cd-hero-slider').addClass('small-screen');
-                    $('.cd-hero-slider li:nth-of-type(' + pageNo + ')').css("min-height", totalPageHeight + "px");
-                }
-                else 
-                {
-                    $('.cd-hero-slider').removeClass('small-screen');
-                    $('.cd-hero-slider li:nth-of-type(' + pageNo + ')').css("min-height", "100%");
-                }
-            }
+                                        // Get the page height
+                                        var totalPageHeight = 335 + $('.cd-slider-nav').height()
+                                                + pageContentHeight + offset
+                                                + $('.tm-footer').height();
 
-            function uploadVideo() {
+                                        // Adjust layout based on page height and window height
+                                        if (totalPageHeight > $(window).height())
+                                        {
+                                            $('.cd-hero-slider').addClass('small-screen');
+                                            $('.cd-hero-slider li:nth-of-type(' + pageNo + ')').css("min-height", totalPageHeight + "px");
+                                        } else
+                                        {
+                                            $('.cd-hero-slider').removeClass('small-screen');
+                                            $('.cd-hero-slider li:nth-of-type(' + pageNo + ')').css("min-height", "100%");
+                                        }
+                                    }
 
-                var videoWrapper = $('.cd-bg-video-wrapper');
-                if( videoWrapper.is(':visible') ) {
-                    // if visible - we are not on a mobile device 
-                    var videoUrl = videoWrapper.data('video'),
-                        
-                    video = $('<video autoplay loop><source src="'+videoUrl+'.mp4" type="video/mp4" /></video>');
-                    video.appendTo(videoWrapper);
+                                    function uploadVideo() {
 
-                    // play video if first slide
-                    if(videoWrapper.parent('.cd-bg-video.selected').length > 0) video.get(0).play();                 
-                }
-            }
+                                        var videoWrapper = $('.cd-bg-video-wrapper');
+                                        if (videoWrapper.is(':visible')) {
+                                            // if visible - we are not on a mobile device 
+                                            var videoUrl = videoWrapper.data('video'),
+                                                    video = $('<video autoplay loop><source src="' + videoUrl + '.mp4" type="video/mp4" /></video>');
+                                            video.appendTo(videoWrapper);
 
-            // Everything is loaded including images.            
-            $(window).load(function(){
+                                            // play video if first slide
+                                            if (videoWrapper.parent('.cd-bg-video.selected').length > 0)
+                                                video.get(0).play();
+                                        }
+                                    }
 
-                adjustHeightOfPage(1); // Adjust page height
+                                    // Everything is loaded including images.            
+                                    $(window).load(function () {
 
-                // Background Video
-                if($( window ).width() > 800) {
-                    uploadVideo();
-                }
+                                        adjustHeightOfPage(1); // Adjust page height
 
-                /* Gallery One pop up
-                -----------------------------------------*/
-                $('.gallery-first').magnificPopup({
-                    delegate: 'a', // child items selector, by clicking on it popup will open
-                    type: 'image',
-                    gallery:{enabled:true}                
-                });
+                                        // Background Video
+                                        if ($(window).width() > 800) {
+                                            uploadVideo();
+                                        }
 
-                /* Gallery Two pop up
-                -----------------------------------------*/
-                $('.gallery-second').magnificPopup({
-                    delegate: 'a', // child items selector, by clicking on it popup will open
-                    type: 'image',
-                    gallery:{enabled:true}                
-                });
-				
-                /* Collapse menu after click 
-                -----------------------------------------*/
-                $('#tmNavbar a').click(function(){
-                    $('#tmNavbar').collapse('hide');
+                                        /* Gallery One pop up
+                                         -----------------------------------------*/
+                                        $('.gallery-first').magnificPopup({
+                                            delegate: 'a', // child items selector, by clicking on it popup will open
+                                            type: 'image',
+                                            gallery: {enabled: true}
+                                        });
 
-                    adjustHeightOfPage($(this).data("no")); // Adjust page height       
-                });
+                                        /* Gallery Two pop up
+                                         -----------------------------------------*/
+                                        $('.gallery-second').magnificPopup({
+                                            delegate: 'a', // child items selector, by clicking on it popup will open
+                                            type: 'image',
+                                            gallery: {enabled: true}
+                                        });
 
-                /* Browser resized 
-                -----------------------------------------*/
-                $( window ).resize(function() {
-                    var currentPageNo = $(".cd-hero-slider li.selected .js-tm-page-content").data("page-no");
-                    
-                    // wait 3 seconds
-                    setTimeout(function() {
-                        adjustHeightOfPage( currentPageNo );
-                    }, 3000);
+                                        /* Collapse menu after click 
+                                         -----------------------------------------*/
+                                        $('#tmNavbar a').click(function () {
+                                            $('#tmNavbar').collapse('hide');
 
-                    if($( window ).width() > 800) {
-                       uploadVideo();
-                    }
-                    
-                });
+                                            adjustHeightOfPage($(this).data("no")); // Adjust page height       
+                                        });
 
-                // Play video only when visible
-                // https://stackoverflow.com/questions/21163756/html5-and-javascript-to-play-videos-only-when-visible
-                $('video').each(function(){
-                    if ($(this).is(":in-viewport")) {
-                        $(this)[0].play();
-                    } else {
-                        $(this)[0].pause();
-                    }
-                })
-        
-                // Remove preloader (https://ihatetomatoes.net/create-custom-preloading-screen/)
-                $('body').addClass('loaded');
-                $('.tm-current-year').text(new Date().getFullYear());
-                           
-            });
+                                        /* Browser resized 
+                                         -----------------------------------------*/
+                                        $(window).resize(function () {
+                                            var currentPageNo = $(".cd-hero-slider li.selected .js-tm-page-content").data("page-no");
+
+                                            // wait 3 seconds
+                                            setTimeout(function () {
+                                                adjustHeightOfPage(currentPageNo);
+                                            }, 3000);
+
+                                            if ($(window).width() > 800) {
+                                                uploadVideo();
+                                            }
+
+                                        });
+
+                                        // Play video only when visible
+                                        // https://stackoverflow.com/questions/21163756/html5-and-javascript-to-play-videos-only-when-visible
+                                        $('video').each(function () {
+                                            if ($(this).is(":in-viewport")) {
+                                                $(this)[0].play();
+                                            } else {
+                                                $(this)[0].pause();
+                                            }
+                                        })
+
+                                        // Remove preloader (https://ihatetomatoes.net/create-custom-preloading-screen/)
+                                        $('body').addClass('loaded');
+                                        $('.tm-current-year').text(new Date().getFullYear());
+
+                                    });
 
         </script>            
 
-</body>
+    </body>
 </html>
