@@ -147,8 +147,8 @@ http://www.tooplate.com/view/2088-big-city
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <div class="tm-flex tm-contact-container tm-bg-dark-blue">                                
-                                            <div class="text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding tm-textbox-padding-contact">
-                                           		<!--<p class="tm-text">Poner aquí el mapa</p>-->
+                                            <!--<div class="text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding tm-textbox-padding-contact">
+                                           		<p class="tm-text">Poner aquí el mapa</p>
                                            		 <form action="index.html" method="post" class="tm-contact-form">
                                                     <div class="form-group">
                                                         <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Name"  required/>
@@ -162,17 +162,44 @@ http://www.tooplate.com/view/2088-big-city
                                                     <button type="submit" class="tm-submit-btn">Enviar</button>                                                
                                                 </form> 
                                            		
-                                           	</div>
+                                           	</div>-->
 
                                             <div class="text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding tm-textbox-padding-contact">
                                                 <!-- contact form -->
                                                 <form action="index.html" method="post" class="tm-contact-form">
+
                                                     <div class="form-group">
-                                                        <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Name"  required/>
+                                                        <input type="text" id="per_nombres" name="per_nombres" class="form-control" placeholder="Nombres"  required/>
                                                     </div>                                                                                                            
                                                     <div class="form-group">
-                                                        <input type="email" id="contact_email" name="contact_email" class="form-control" placeholder="Email"  required/>
-                                                    </div>                                                    
+                                                        <input type="text" id="per_ape1" name="per_ape1" class="form-control" placeholder="Primer apellido"  required/>
+                                                    </div> 
+                                                    <div class="form-group">
+                                                        <input type="text" id="per_ape2" name="per_ape2" class="form-control" placeholder="Segundo apellido"  required/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                    	<!--<label for="per_estrato" style="color: white">Estrato social: </-label>
+                                                    	<input type="number" id="per_estrato" name="per_estrato" class="form-control" list="numeros" placeholder="Estrato social" required/>
+                                                    	<span class="validity"></span>
+                                                    	<datalist id="numeros">
+														  <option value="1">
+														  <option value="2">
+														  <option value="3">
+														  <option value="4">											
+														</datalist>-->
+                                                    </div> 
+                                                    <div style="color: white;">
+                                                    	<label for="per_estrato">Estrato social: </label> <br>
+                                                        <input type="radio" id="per_estrato" name="per_estrato" class="" value=1 checked/> Estrato 1 <br>
+                                                        <input type="radio" id="per_estrato" name="per_estrato" class="" value=2/> Estrato 2 <br> 
+                                                        <input type="radio" id="per_estrato" name="per_estrato" class="" value=3/> Estrato 3 <br> 
+                                                        <input type="radio" id="per_estrato" name="per_estrato" class="" value=4/> Estrato 4 <br>   
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <select name="prog_nombre">
+                                                        	                                                       
+                                                        </select>
+                                                    </div>                                                  
                                                     <div class="form-group">
                                                         <textarea id="contact_message" name="contact_message" class="form-control" rows="5" placeholder="Your message" required></textarea>
                                                     </div>

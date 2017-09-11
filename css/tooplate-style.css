@@ -480,7 +480,7 @@ border-top-color: #f9c922; /* Chrome, Opera 15+, Safari 5+ */ animation: spin 1.
 	.grid-item {
 		padding-left: 10px;
 		padding-right: 10px;
-		width: 50%;
+		width: 100%;
 	}
 
 	.grid-item-big { width: 100%; }
